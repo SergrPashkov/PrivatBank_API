@@ -3,7 +3,7 @@
 
 async function getExchangeRates() {
 	const URL = 'https://api.privatbank.ua/p24api/pubinfo';
-	const resp = await `${URL}`;
+	const resp = await fetch `${URL}`;
 	const data = await resp;
 	console.log(data);
 }
