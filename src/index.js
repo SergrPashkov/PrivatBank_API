@@ -2,10 +2,19 @@
 // https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5
 
 async function getExchangeRates() {
-	const URL = 'https://api.privatbank.ua/p24api/pubinfo';
-	const resp = await fetch `${URL}`;
-	const data = await resp;
+	try {
+	const URL = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5';
+	const resp = await fetch(`${URL}`);
+	if (!resp.ok) {
+		throw new Error(resp.statusText);
+	}
+	const data = await resp.json();
+
 	console.log(data);
+}catch(e){
+	console.log(e);
+}
+console.log("end");
 }
 
 getExchangeRates()
